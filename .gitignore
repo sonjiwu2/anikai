@@ -1,0 +1,12 @@
+node_modules
+dist
+*.local
+.DS_Store
+.playwright-cli
+scripts/.cache
+.venv
+public/media/video/**/*.mp4
+.claude
+.playwright-mcp
+docs/screenshots
+*.log

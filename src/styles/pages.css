@@ -1,0 +1,409 @@
+/* =====================================================================
+   Home
+   ===================================================================== */
+
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface);
+  overflow: hidden;
+}
+
+/* Phone: artwork on top, text and actions below it. Height follows the content. */
+.hero__art {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  animation: fade-in 260ms var(--ease-out);
+}
+
+.hero__art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero__art::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 55%, var(--surface) 100%);
+}
+
+.hero__content {
+  /* A flex item can be layered without being positioned, so the pager can anchor to the hero. */
+  z-index: 1;
+  padding: 0 16px 20px;
+}
+
+.hero__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 44px;
+}
+
+.hero__label {
+  color: var(--text-muted);
+  font-size: var(--fs-13);
+  font-weight: 600;
+}
+
+.hero__title {
+  margin-top: 6px;
+  font-size: clamp(1.75rem, 1.1rem + 3.2vw, 3.5rem);
+  font-weight: 850;
+  letter-spacing: -0.035em;
+  line-height: 1.02;
+}
+
+.hero__meta {
+  margin-top: 12px;
+  font-size: var(--fs-14);
+}
+
+.hero__tagline {
+  max-width: 30ch;
+  margin-top: 12px;
+  font-size: clamp(1rem, 0.95rem + 0.35vw, 1.1875rem);
+  line-height: 1.35;
+  text-wrap: balance;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.hero__watch {
+  min-width: 148px;
+}
+
+/* On wide screens the secondary actions can overlap the artwork, so they get a solid backing. */
+.hero__actions .btn:not(.btn--primary) {
+  background: rgba(27, 29, 36, 0.86);
+}
+
+@media (hover: hover) {
+  .hero__actions .btn:not(.btn--primary):hover {
+    background: var(--surface-raised);
+  }
+}
+
+.hero__pager {
+  display: flex;
+  align-items: center;
+  margin-right: -8px;
+}
+
+.hero__arrow {
+  color: var(--text);
+}
+
+.hero__count {
+  min-width: 40px;
+  color: var(--text-muted);
+  font-size: var(--fs-13);
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Wide: text on the left, artwork fills the right side and fades into the surface. */
+@media (min-width: 900px) {
+  .hero {
+    min-height: clamp(340px, 26vw, 384px);
+    justify-content: center;
+  }
+
+  .hero__art {
+    position: absolute;
+    inset: 0 0 0 auto;
+    width: 68%;
+    aspect-ratio: auto;
+  }
+
+  .hero__art::after {
+    background: linear-gradient(90deg, var(--surface) 0%, rgba(27, 29, 36, 0.8) 10%, rgba(27, 29, 36, 0.22) 28%, transparent 44%);
+  }
+
+  .hero__content {
+    width: min(48%, 560px);
+    padding: 32px 0 32px 36px;
+  }
+
+  .hero__top {
+    min-height: 0;
+  }
+
+  .hero__pager {
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+    margin: 0;
+    padding: 2px;
+    border-radius: var(--radius-pill);
+    background: var(--media-scrim);
+  }
+
+  .hero__count {
+    color: var(--text);
+  }
+}
+
+.home__bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: var(--s-20);
+  border-bottom: 1px solid var(--border);
+}
+
+.home__bar .tabs {
+  flex: 1;
+  min-width: 0;
+  border-bottom: 0;
+  margin-bottom: -1px;
+}
+
+.home__random {
+  flex: none;
+  color: var(--text-muted);
+  font-weight: 550;
+}
+
+.home__random:hover {
+  color: var(--text);
+}
+
+@media (max-width: 599px) {
+  /* The label would crowd the tabs; the icon keeps its accessible name via the visible text on wider screens. */
+  .home__random {
+    width: 44px;
+    padding: 0;
+    font-size: 0;
+    gap: 0;
+  }
+}
+
+.home .section:first-of-type {
+  margin-top: var(--s-24);
+}
+
+/* =====================================================================
+   Catalog
+   ===================================================================== */
+
+.catalog__layout {
+  display: grid;
+  gap: var(--s-24);
+}
+
+@media (min-width: 1024px) {
+  .catalog__layout {
+    grid-template-columns: 240px minmax(0, 1fr);
+    align-items: start;
+  }
+}
+
+.catalog__side {
+  position: sticky;
+  top: calc(var(--header-h) + 16px);
+  max-height: calc(100dvh - var(--header-h) - 32px);
+  overflow-y: auto;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  background: var(--surface);
+  scrollbar-width: thin;
+}
+
+.catalog__main {
+  min-width: 0;
+  scroll-margin-top: calc(var(--header-h) + 16px);
+}
+
+.catalog__toolbar {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.catalog__search {
+  grid-column: 1 / -1;
+}
+
+@media (min-width: 700px) {
+  .catalog__toolbar {
+    grid-template-columns: minmax(0, 1fr) auto auto;
+  }
+
+  .catalog__search {
+    grid-column: auto;
+  }
+
+  .catalog__sort .select {
+    width: 220px;
+  }
+}
+
+.catalog__filters-btn {
+  position: relative;
+}
+
+.catalog__count-dot {
+  display: inline-grid;
+  place-items: center;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 6px;
+  border-radius: 11px;
+  background: var(--accent);
+  color: var(--on-accent);
+  font-size: var(--fs-12);
+  font-weight: 750;
+}
+
+.catalog__found {
+  margin: 16px 0 12px;
+  color: var(--text-muted);
+  font-size: var(--fs-14);
+}
+
+.catalog__chips {
+  margin-bottom: 16px;
+}
+
+@media (min-width: 1024px) {
+  .poster-grid--aside {
+    --cols: 4;
+  }
+}
+
+@media (min-width: 1280px) {
+  .poster-grid--aside {
+    --cols: 5;
+  }
+}
+
+.filters {
+  display: grid;
+  gap: 20px;
+}
+
+.filters__group {
+  margin: 0;
+  padding: 0 0 20px;
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  min-width: 0;
+}
+
+.filters__legend {
+  padding: 0;
+  font-size: var(--fs-16);
+  font-weight: 700;
+}
+
+.filters__hint {
+  margin-top: 2px;
+  color: var(--text-muted);
+  font-size: var(--fs-13);
+}
+
+.filters__options {
+  display: grid;
+  margin-top: 8px;
+}
+
+@media (max-width: 1023px) {
+  .filters__options {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 16px;
+  }
+
+  .filters .check {
+    min-height: 44px;
+  }
+}
+
+.filters__more {
+  min-height: 36px;
+  margin-top: 4px;
+  color: var(--accent);
+  font-size: var(--fs-14);
+  font-weight: 600;
+  border-radius: 6px;
+}
+
+.filters__more:hover {
+  color: var(--accent-hover);
+}
+
+.filters__years {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.filters__reset {
+  justify-content: flex-start;
+  color: var(--text-muted);
+}
+
+/* The sheet has its own reset button in the footer. */
+.dialog .filters__reset {
+  display: none;
+}
+
+.dialog .filters__group:last-of-type {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  margin-top: var(--s-32);
+}
+
+.pagination__btn {
+  display: inline-grid;
+  place-items: center;
+  min-width: 44px;
+  height: 44px;
+  padding: 0 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-control);
+  background: var(--surface);
+  font-weight: 600;
+}
+
+.pagination__btn:hover:not(:disabled) {
+  background: var(--surface-raised);
+}
+
+.pagination__btn[aria-current='page'] {
+  border-color: transparent;
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+.pagination__btn:disabled {
+  opacity: 0.4;
+}
+
+.pagination__gap {
+  display: inline-grid;
+  place-items: center;
+  width: 28px;
+  color: var(--text-muted);
+}

@@ -1,0 +1,80 @@
+{
+  "product": "Anikai",
+  "created_date": "2026-10-03",
+  "reference_count": 9,
+  "branding_note": "Original references retain YORU wordmark; implementation must use Anikai.",
+  "references": [
+    {
+      "path": "references/01_home.png",
+      "width": 1513,
+      "height": 1040,
+      "bytes": 2171649,
+      "sha256": "d04c2b8db89090a2efb0fd3ec3749d6a0aaf834949c5e1d47343f158bd7ad3df",
+      "generated_reference": true
+    },
+    {
+      "path": "references/02_catalog.png",
+      "width": 1513,
+      "height": 1040,
+      "bytes": 1981795,
+      "sha256": "3e7fc623e0370f08dc42464da85288f231cb5086d04625dd3d50b3c0d7c79e32",
+      "generated_reference": true
+    },
+    {
+      "path": "references/03_schedule.png",
+      "width": 1514,
+      "height": 1039,
+      "bytes": 1631913,
+      "sha256": "2636ce87e50b6ca2c6d4a9c537d30535ad94384c04b109b84aac2c3c651a27e1",
+      "generated_reference": true
+    },
+    {
+      "path": "references/04_collection.png",
+      "width": 1513,
+      "height": 1040,
+      "bytes": 1811659,
+      "sha256": "648ad503aadc137a6b5110d002105a6af8233257fe6e4a7c7eccb216bd3c9a21",
+      "generated_reference": true
+    },
+    {
+      "path": "references/05_anime_detail.png",
+      "width": 1513,
+      "height": 1040,
+      "bytes": 1891114,
+      "sha256": "3f80ca026bacc74a6511c3ea656ddd6c1beb0b3864d0cbfcc768b229d8efa494",
+      "generated_reference": true
+    },
+    {
+      "path": "references/06_player.png",
+      "width": 1513,
+      "height": 1040,
+      "bytes": 1562590,
+      "sha256": "3f985f024cb0fd3fd4402b4872db0d4b83a82d236b24fe2f999b66322862a2b1",
+      "generated_reference": true
+    },
+    {
+      "path": "references/07_profile.png",
+      "width": 1513,
+      "height": 1040,
+      "bytes": 1670456,
+      "sha256": "94789e4d52650efe8748223814a30cb004a0667e2e5e7935d6538add4fb97073",
+      "generated_reference": true
+    },
+    {
+      "path": "references/08_settings.png",
+      "width": 1513,
+      "height": 1039,
+      "bytes": 1176520,
+      "sha256": "6a8006838700db0fa50ee5a368c98b65a81acf293261e61f852a105819d0412e",
+      "generated_reference": true
+    },
+    {
+      "path": "references/09_icons.png",
+      "width": 1513,
+      "height": 1039,
+      "bytes": 1282529,
+      "sha256": "fb90102bcccc9a11b4313fe3e8ce782a2653fe279017ddcbd1254452237aec14",
+      "generated_reference": true
+    }
+  ]
+}

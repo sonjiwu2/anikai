@@ -1,0 +1,120 @@
+:root {
+  color-scheme: dark;
+
+  /* Colour — graphite base, one blue accent. No green anywhere in the UI. */
+  --bg: #121318;
+  --surface: #1b1d24;
+  --surface-raised: #252832;
+  --surface-hover: #2e313d;
+  --text: #f4f3ef;
+  --text-muted: #a2a6b1;
+  --accent: #819bff;
+  --accent-hover: #96acff;
+  --accent-pressed: #7189ee;
+  --on-accent: #0d1020;
+  --accent-soft: rgba(129, 155, 255, 0.14);
+  --accent-soft-strong: rgba(129, 155, 255, 0.24);
+  --border: rgba(255, 255, 255, 0.1);
+  --border-strong: rgba(255, 255, 255, 0.2);
+  /* Text fields are recognised by their outline alone, so it must reach 3:1 against the page. */
+  --border-field: #6d7280;
+  --danger: #ff8f8f;
+  --danger-soft: rgba(255, 143, 143, 0.14);
+  --scrim: rgba(8, 9, 12, 0.72);
+  --media-scrim: rgba(10, 11, 15, 0.78);
+
+  /* Shape */
+  --radius-card: 10px;
+  --radius-control: 8px;
+  --radius-pill: 999px;
+
+  /* Elevation: only menus, dialogs and toasts cast a shadow */
+  --shadow-pop: 0 16px 40px rgba(0, 0, 0, 0.5), 0 0 0 1px var(--border);
+
+  /* Type */
+  --font: 'Onest Variable', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --fs-12: 0.75rem;
+  --fs-13: 0.8125rem;
+  --fs-14: 0.875rem;
+  --fs-15: 0.9375rem;
+  --fs-16: 1rem;
+  --fs-18: 1.125rem;
+  --fs-20: 1.25rem;
+  --fs-24: 1.5rem;
+  --fs-28: 1.75rem;
+  --fs-32: 2rem;
+  --fs-36: 2.25rem;
+
+  /* Space: 4/8 grid */
+  --s-4: 4px;
+  --s-8: 8px;
+  --s-12: 12px;
+  --s-16: 16px;
+  --s-20: 20px;
+  --s-24: 24px;
+  --s-32: 32px;
+  --s-40: 40px;
+  --s-48: 48px;
+
+  /* Layout */
+  --gutter: 16px;
+  --content-max: 1440px;
+  --header-h: 58px;
+  --bottom-nav-h: 60px;
+  --grid-gap: 12px;
+  --control-h: 44px;
+  --section-gap: 32px;
+
+  /* Motion */
+  --dur-fast: 150ms;
+  --dur: 200ms;
+  --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --ease-in: cubic-bezier(0.5, 0, 0.9, 0.5);
+
+  /* Layers */
+  --z-sticky: 20;
+  --z-nav: 40;
+  --z-pop: 60;
+  --z-toast: 80;
+}
+
+@media (min-width: 600px) {
+  :root {
+    --gutter: 24px;
+    --grid-gap: 16px;
+  }
+}
+
+@media (min-width: 768px) {
+  :root {
+    --header-h: 72px;
+    --bottom-nav-h: 0px;
+    --section-gap: 40px;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --gutter: 32px;
+    --grid-gap: 20px;
+    --control-h: 42px;
+  }
+}
+
+@media (min-width: 1280px) {
+  :root {
+    --gutter: 40px;
+    --grid-gap: 24px;
+  }
+}
+
+/* Compact density: tighter poster grids, chosen in Settings → Внешний вид. */
+:root[data-density='compact'] {
+  --grid-gap: 10px;
+}
+
+@media (min-width: 1024px) {
+  :root[data-density='compact'] {
+    --grid-gap: 14px;
+  }
+}

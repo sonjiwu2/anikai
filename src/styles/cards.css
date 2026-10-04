@@ -1,0 +1,411 @@
+/* ---------- Poster card ---------- */
+
+.poster-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.poster-card__art {
+  position: relative;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  background: var(--surface-raised);
+}
+
+.poster-card__art .img > img {
+  transition: transform 320ms var(--ease-out);
+}
+
+.poster-card__rating {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* The title link stretches over the whole card: one tab stop, one destination. */
+.poster-card__link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: var(--radius-card);
+}
+
+.poster-card__link:focus-visible {
+  outline: none;
+}
+
+.poster-card__link:focus-visible::after {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.card-action {
+  background: var(--media-scrim);
+  color: var(--text);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+
+.card-action.is-active {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+@media (hover: hover) {
+  .card-action:hover:not(:disabled) {
+    background: rgba(10, 11, 15, 0.92);
+    color: var(--text);
+  }
+
+  .card-action.is-active:hover:not(:disabled) {
+    background: var(--accent-hover);
+    color: var(--on-accent);
+  }
+}
+
+.poster-card__add {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  z-index: 3;
+}
+
+.poster-card__play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 3;
+  display: none;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  margin: -26px 0 0 -26px;
+  padding-left: 3px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--on-accent);
+  opacity: 0;
+  transform: scale(0.9);
+  transition:
+    opacity var(--dur) var(--ease-out),
+    transform var(--dur) var(--ease-out);
+}
+
+/* Hover extras exist only where hovering exists. Touch gets the always-visible "+" and the card link. */
+@media (hover: hover) and (pointer: fine) {
+  .poster-card__play {
+    display: grid;
+  }
+
+  .poster-card__add:not(.is-active) {
+    opacity: 0;
+    transition: opacity var(--dur) var(--ease-out);
+  }
+
+  .poster-card:hover .poster-card__add,
+  .poster-card:focus-within .poster-card__add,
+  .poster-card__add[aria-expanded='true'] {
+    opacity: 1;
+  }
+
+  .poster-card:hover .poster-card__play {
+    opacity: 1;
+    transform: none;
+  }
+
+  .poster-card:hover .poster-card__art .img > img {
+    transform: scale(1.04);
+  }
+
+  .poster-card__play:hover {
+    background: var(--accent-hover);
+  }
+}
+
+.poster-card__body {
+  display: grid;
+  gap: 3px;
+  padding-top: 10px;
+}
+
+.poster-card__title {
+  font-size: var(--fs-15);
+  font-weight: 650;
+  line-height: 1.3;
+  letter-spacing: 0;
+  text-wrap: pretty;
+  /* Long Russian titles get up to three lines before being cut. */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.poster-card__note {
+  color: var(--text-muted);
+  font-size: var(--fs-13);
+}
+
+/* ---------- Continue watching ---------- */
+
+.continue-card {
+  position: relative;
+  min-width: 0;
+}
+
+.continue-card__art {
+  position: relative;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+}
+
+.continue-card__time {
+  position: absolute;
+  right: 8px;
+  bottom: 12px;
+}
+
+.continue-card__bar {
+  position: absolute;
+  inset: auto 0 0;
+  height: 4px;
+  border-radius: 0;
+}
+
+.continue-card__body {
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+  padding-top: 10px;
+}
+
+.continue-card__text {
+  flex: 1;
+  min-width: 0;
+}
+
+.continue-card__title {
+  margin-top: 2px;
+  font-size: var(--fs-16);
+  font-weight: 650;
+  line-height: 1.3;
+  letter-spacing: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.continue-card__link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: var(--radius-card);
+}
+
+.continue-card__link:focus-visible {
+  outline: none;
+}
+
+.continue-card__link:focus-visible::after {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.continue-card__menu {
+  position: relative;
+  z-index: 2;
+  margin: -4px -8px 0 0;
+}
+
+/* Strip: one full card and a peek of the next on phones, three across on desktop. */
+.continue-strip {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: min(78%, 340px);
+  gap: var(--grid-gap);
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  /* Bleed to the screen edges so cards scroll under the gutter, not against a hard edge. */
+  margin-inline: calc(var(--gutter) * -1);
+  padding-inline: var(--gutter);
+  scroll-padding-inline: var(--gutter);
+}
+
+.continue-strip::-webkit-scrollbar {
+  display: none;
+}
+
+.continue-strip > * {
+  scroll-snap-align: start;
+}
+
+@media (min-width: 900px) {
+  .continue-strip {
+    grid-auto-flow: row;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-auto-columns: auto;
+    overflow: visible;
+    margin-inline: 0;
+    padding-inline: 0;
+  }
+}
+
+/* ---------- Episode card ---------- */
+
+.episode-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--s-20) var(--grid-gap);
+}
+
+@media (min-width: 700px) {
+  .episode-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1100px) {
+  .episode-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.episode-card {
+  position: relative;
+  min-width: 0;
+  /* Long episode lists: skip layout and paint for off-screen cards. */
+  content-visibility: auto;
+  contain-intrinsic-size: auto 240px;
+}
+
+.episode-card__art {
+  position: relative;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  outline: 2px solid transparent;
+  outline-offset: -2px;
+}
+
+.episode-card.is-current .episode-card__art {
+  outline-color: var(--accent);
+}
+
+.img.is-blurred > img {
+  filter: blur(18px) saturate(0.7);
+  transform: scale(1.2);
+}
+
+.episode-card__veil {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(18, 19, 24, 0.45);
+  color: var(--text);
+}
+
+.episode-card__time {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+}
+
+.episode-card__bar {
+  position: absolute;
+  inset: auto 0 0;
+  height: 4px;
+  border-radius: 0;
+}
+
+.episode-card__check {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border: 1.5px solid rgba(255, 255, 255, 0.85);
+  border-radius: 50%;
+  background: var(--media-scrim);
+  color: var(--text);
+}
+
+/* 44px hit area around the 30px badge */
+.episode-card__check::before {
+  content: '';
+  position: absolute;
+  inset: -7px;
+}
+
+.episode-card__check.is-on {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+.episode-card__body {
+  padding-top: 8px;
+}
+
+.episode-card__title {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: var(--fs-15);
+  font-weight: 650;
+  letter-spacing: 0;
+}
+
+.episode-card__link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: var(--radius-card);
+}
+
+.episode-card__link:focus-visible {
+  outline: none;
+}
+
+.episode-card__link:focus-visible::after {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.episode-card__now {
+  flex: none;
+  color: var(--accent);
+  font-size: var(--fs-12);
+  font-weight: 650;
+}
+
+.episode-card__sub {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 10px;
+  margin-top: 2px;
+  color: var(--text-muted);
+  font-size: var(--fs-13);
+  line-height: 1.35;
+}
+
+.episode-card__nosrc {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+}

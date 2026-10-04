@@ -1,0 +1,355 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  /* Keeps a focused or anchored element clear of the sticky header and the bottom navigation. */
+  scroll-padding-top: calc(var(--header-h) + 12px);
+  scroll-padding-bottom: calc(var(--bottom-nav-h) + 12px);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  /* Reserve the scrollbar so opening a dialog never shifts the page. */
+  scrollbar-gutter: stable;
+  scrollbar-color: #3a3e4b transparent;
+}
+
+html.is-locked {
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: var(--fs-15);
+  line-height: 1.5;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+ol,
+dl,
+dd,
+figure {
+  margin: 0;
+}
+
+ul,
+ol {
+  padding: 0;
+  list-style: none;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.15;
+  font-weight: 750;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+
+img,
+video,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: 0;
+  padding: 0;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: var(--radius-control);
+}
+
+::selection {
+  background: var(--accent-soft-strong);
+}
+
+/* ---------- Helpers ---------- */
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  z-index: 200;
+  padding: 10px 16px;
+  background: var(--accent);
+  color: var(--on-accent);
+  font-weight: 650;
+  border-radius: var(--radius-control);
+  transform: translateY(-200%);
+}
+
+.skip-link:focus-visible {
+  transform: none;
+}
+
+.container {
+  width: 100%;
+  max-width: calc(var(--content-max) + var(--gutter) * 2);
+  margin-inline: auto;
+  padding-inline: max(var(--gutter), env(safe-area-inset-left)) max(var(--gutter), env(safe-area-inset-right));
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+.muted {
+  color: var(--text-muted);
+}
+
+/* "Экшен • Фэнтези • 2024" */
+.meta {
+  --meta-gap: 19px;
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 2px;
+  /* Every item carries a leading dot. The first column is clipped away, so a dot never
+     starts a line — neither on the first row nor after a wrap. */
+  margin-left: calc(var(--meta-gap) * -1);
+  clip-path: inset(0 0 0 var(--meta-gap));
+  color: var(--text-muted);
+  font-size: var(--fs-13);
+  line-height: 1.4;
+}
+
+.meta > * {
+  position: relative;
+  padding-left: var(--meta-gap);
+}
+
+.meta > *::before {
+  content: '';
+  position: absolute;
+  left: 8px;
+  top: 0.7em;
+  width: 3px;
+  height: 3px;
+  margin-top: -1.5px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.7;
+}
+
+/* ---------- Page scaffolding ---------- */
+
+.page {
+  padding-block: var(--s-24) var(--s-48);
+}
+
+.page-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--s-16);
+  margin-bottom: var(--s-24);
+}
+
+.page-title {
+  font-size: clamp(1.625rem, 1.2rem + 1.9vw, 2.25rem);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  /* User-written titles may be one very long word. */
+  overflow-wrap: anywhere;
+}
+
+.page-head > * {
+  min-width: 0;
+}
+
+.page-lead {
+  margin-top: 6px;
+  color: var(--text-muted);
+  font-size: var(--fs-16);
+}
+
+.section {
+  margin-top: var(--section-gap);
+}
+
+.section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s-16);
+  margin-bottom: var(--s-16);
+}
+
+.section-title {
+  font-size: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);
+}
+
+.section-title small {
+  display: block;
+  margin-top: 4px;
+  color: var(--text-muted);
+  font-size: var(--fs-14);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.35;
+}
+
+@media (min-width: 768px) {
+  .section-title small {
+    display: inline;
+    margin: 0 0 0 10px;
+  }
+}
+
+.section-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex: none;
+  min-height: 32px;
+  color: var(--accent);
+  font-size: var(--fs-14);
+  font-weight: 550;
+  white-space: nowrap;
+  border-radius: var(--radius-control);
+}
+
+.section-link:hover {
+  color: var(--accent-hover);
+}
+
+/* Poster grid: column count follows available width, never the other way round. */
+.poster-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--cols, 2), minmax(0, 1fr));
+  gap: var(--s-20) var(--grid-gap);
+}
+
+@media (min-width: 520px) {
+  .poster-grid {
+    --cols: 3;
+  }
+}
+
+@media (min-width: 768px) {
+  .poster-grid {
+    --cols: 4;
+  }
+}
+
+@media (min-width: 1024px) {
+  .poster-grid {
+    --cols: 5;
+  }
+}
+
+@media (min-width: 1280px) {
+  .poster-grid {
+    --cols: 6;
+  }
+}
+
+:root[data-density='compact'] .poster-grid {
+  --cols: 3;
+}
+
+@media (min-width: 520px) {
+  :root[data-density='compact'] .poster-grid {
+    --cols: 4;
+  }
+}
+
+@media (min-width: 768px) {
+  :root[data-density='compact'] .poster-grid {
+    --cols: 5;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root[data-density='compact'] .poster-grid {
+    --cols: 6;
+  }
+}
+
+@media (min-width: 1280px) {
+  :root[data-density='compact'] .poster-grid {
+    --cols: 7;
+  }
+}
+
+/* ---------- Motion preferences ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+:root[data-reduce-motion='true'] *,
+:root[data-reduce-motion='true'] *::before,
+:root[data-reduce-motion='true'] *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}

@@ -1,0 +1,108 @@
+{
+  "sources": {
+    "apothecary-diaries/s2e01": {
+      "provider": "local",
+      "videoId": "ce36bdcc42238c8e089609233bf9fea3",
+      "url": "https://rutube.ru/video/ce36bdcc42238c8e089609233bf9fea3/",
+      "title": "Монолог фармацевта — сезон 2, серия 1",
+      "duration": 1439.967,
+      "channel": "Тян",
+      "fileUrl": "/media/video/apothecary-diaries/s2e01.mp4",
+      "height": 720,
+      "cutStart": 0,
+      "cutEnd": 1439.9666666666667,
+      "verifiedAt": "2026-10-04T08:40:34.988Z"
+    },
+    "apothecary-diaries/s2e02": {
+      "provider": "local",
+      "videoId": "ce36bdcc42238c8e089609233bf9fea3",
+      "url": "https://rutube.ru/video/ce36bdcc42238c8e089609233bf9fea3/",
+      "title": "Монолог фармацевта — сезон 2, серия 2",
+      "duration": 1440.017,
+      "channel": "Тян",
+      "fileUrl": "/media/video/apothecary-diaries/s2e02.mp4",
+      "height": 720,
+      "cutStart": 1439.9666666666667,
+      "cutEnd": 2879.983333333333,
+      "verifiedAt": "2026-10-04T08:42:34.584Z"
+    },
+    "apothecary-diaries/s2e03": {
+      "provider": "local",
+      "videoId": "ce36bdcc42238c8e089609233bf9fea3",
+      "url": "https://rutube.ru/video/ce36bdcc42238c8e089609233bf9fea3/",
+      "title": "Монолог фармацевта — сезон 2, серия 3",
+      "duration": 1442.084,
+      "channel": "Тян",
+      "fileUrl": "/media/video/apothecary-diaries/s2e03.mp4",
+      "height": 720,
+      "cutStart": 2879.983333333333,
+      "cutEnd": 4322.066666666667,
+      "verifiedAt": "2026-10-04T08:44:27.805Z"
+    },
+    "apothecary-diaries/s2e04": {
+      "provider": "local",
+      "videoId": "ce36bdcc42238c8e089609233bf9fea3",
+      "url": "https://rutube.ru/video/ce36bdcc42238c8e089609233bf9fea3/",
+      "title": "Монолог фармацевта — сезон 2, серия 4",
+      "duration": 1439.917,
+      "channel": "Тян",
+      "fileUrl": "/media/video/apothecary-diaries/s2e04.mp4",
+      "height": 720,
+      "cutStart": 4322.066666666667,
+      "cutEnd": 5761.983333333334,
+      "verifiedAt": "2026-10-04T08:46:28.564Z"
+    },
+    "apothecary-diaries/s2e05": {
+      "provider": "local",
+      "videoId": "ce36bdcc42238c8e089609233bf9fea3",
+      "url": "https://rutube.ru/video/ce36bdcc42238c8e089609233bf9fea3/",
+      "title": "Монолог фармацевта — сезон 2, серия 5",
+      "duration": 1441.917,
+      "channel": "Тян",
+      "fileUrl": "/media/video/apothecary-diaries/s2e05.mp4",
+      "height": 720,
+      "cutStart": 5761.983333333334,
+      "cutEnd": 7203.9,
+      "verifiedAt": "2026-10-04T08:48:34.900Z"
+    },
+    "apothecary-diaries/s2e06": {
+      "provider": "local",
+      "videoId": "ce36bdcc42238c8e089609233bf9fea3",
+      "url": "https://rutube.ru/video/ce36bdcc42238c8e089609233bf9fea3/",
+      "title": "Монолог фармацевта — сезон 2, серия 6",
+      "duration": 1439.967,
+      "channel": "Тян",
+      "fileUrl": "/media/video/apothecary-diaries/s2e06.mp4",
+      "height": 720,
+      "cutStart": 7203.9,
+      "cutEnd": 8643.866666666667,
+      "verifiedAt": "2026-10-04T08:50:31.034Z"
+    },
+    "apothecary-diaries/s2e07": {
+      "provider": "local",
+      "videoId": "ce36bdcc42238c8e089609233bf9fea3",
+      "url": "https://rutube.ru/video/ce36bdcc42238c8e089609233bf9fea3/",
+      "title": "Монолог фармацевта — сезон 2, серия 7",
+      "duration": 1440.034,
+      "channel": "Тян",
+      "fileUrl": "/media/video/apothecary-diaries/s2e07.mp4",
+      "height": 720,
+      "cutStart": 8643.866666666667,
+      "cutEnd": 10083.9,
+      "verifiedAt": "2026-10-04T08:52:32.799Z"
+    },
+    "apothecary-diaries/s2e08": {
+      "provider": "local",
+      "videoId": "ce36bdcc42238c8e089609233bf9fea3",
+      "url": "https://rutube.ru/video/ce36bdcc42238c8e089609233bf9fea3/",
+      "title": "Монолог фармацевта — сезон 2, серия 8",
+      "duration": 1440.067,
+      "channel": "Тян",
+      "fileUrl": "/media/video/apothecary-diaries/s2e08.mp4",
+      "height": 720,
+      "cutStart": 10083.9,
+      "cutEnd": 11523.95,
+      "verifiedAt": "2026-10-04T08:54:39.433Z"
+    }
+  }
+}
